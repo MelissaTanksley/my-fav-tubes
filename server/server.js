@@ -3,7 +3,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const morgan = require('morgan')
 
-const db = require('../db.js')
+const db = require('./utils/db.js')
 const connectDB = require('./utils/db.js')
 
 const VideoRouter = require('./routes/videos.js')
