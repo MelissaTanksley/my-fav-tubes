@@ -1,29 +1,29 @@
-const express = require('express')
-const cors = require('cors')
-const helmet = require('helmet')
-const morgan = require('morgan')
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 
-const db = require('../utils/db.js')
-const connectDB = require('../utils/db.js')
+const db = require('../utils/db.js');
+const connectDB = require('../utils/db.js');
 
-const VideoRouter = require('./routes/videos.js')
+const VideoRouter = require('./routes/videos.js');
 
-require('dotenv').config()
-require('colors')
+require('dotenv').config();
+require('colors');
 
-const server = express()
-server.use(express.json())
-server.use(helmet())
-server.use(morgan('dev'))
-server.use(cors())
+const server = express();
+server.use(express.json());
+server.use(helmet());
+server.use(morgan('dev'));
+server.use(cors());
 
 //connectDB()
 
-server.use('/api/videos', VideoRouter)
+server.use('/api/videos', VideoRouter);
 
 const currentTime = new Date().toLocaleString('en-US', {
   timeZone: 'America/Denver',
-})
+});
 
 // @desc:   Server test
 // @route:  GET /
@@ -33,11 +33,11 @@ server.get('/', (req, res) => {
     message: 'Server is live!',
     data: currentTime + ' MST',
     author: 'Github: @mrzacsmith',
-  })
-})
+  });
+});
 
 const PORT = process.env.PORT || 3333
 
 server.listen(PORT, () => {
   console.log(`\n** Server is listening on port ${PORT}`.rainbow)
-})
+});
