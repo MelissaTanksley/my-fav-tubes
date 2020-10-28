@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Video = require('../models/Videos.js')
+const Video = require('../models/videos.js')
 require('colors')
 
 // @desc:   Get all videos and filter
